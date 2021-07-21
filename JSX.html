@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Example</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+    ></script>
+    <script type="text/javascript">
+      console.log(React);
+      console.log(ReactDOM);
+
+      //CreateElement.html 4번을 더 편리하게 사용하는법
+      // 우리가 작성한 어떤 코드 => 순수하게 실행할 수 있는 자바스크립트
+      // jsx문법으로 작성된 코드는 순수 자바스크립트로 변환할 수 있다. -> babel
+      // babel.js.io
+
+      ReactDOM.render(
+        <div>
+        <div>
+          <h1>
+            주제
+            <ul>
+              <li>유리하하</li>
+              <li>유리하하</li>
+              <li>유리하하</li>
+            </ul>
+          </h1>
+        </div>
+      </div>
+        ),
+        document.querySelector("root")
+      );
+    </script>
+  </body>
+</html>
