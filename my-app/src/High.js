@@ -11,13 +11,14 @@ class High extends Component {
     };
     const options = {
       chart: {
-        type: "column",
-        zoomType: "xy",
+        type: "spline",
+        zoomType: "x",
         scrollablePlotArea: {
-          minWidth: 600,
+          minWidth: 200,
           scrollPositionX: 1
         }
       },
+
       title: {
         text: "합천댐 구현 여부 하이차트 테스트",
         align: "left"
@@ -74,16 +75,36 @@ class High extends Component {
           Highcharts.defaultOptions.legend.backgroundColor || // theme
           "rgba(255,255,255,0.25)"
       },
+      accessibility: {
+        announceNewData: {
+          enabled: true,
+          minAnnounceInterval: 15000,
+          announcementFormatter: function (allSeries, newSeries, newPoint) {
+            if (newPoint) {
+              return "New point added. Value: " + newPoint.y;
+            }
+            return false;
+          }
+        }
+      },
+      // plotOptions: {
+      //   series: {
+      //     stacking: "normal",
+      //     dataLabels: {
+      //       enabled: true,
+      //       format: "<b>{point.y}</b>"
+      //     }
+      //   },
+      //   arearange: {
+      //     // shared options for all arearange series
+      //   }
+      // },
       plotOptions: {
-        series: {
-          stacking: "normal",
+        columnrange: {
           dataLabels: {
             enabled: true,
-            format: "<b>{point.y}</b>"
+            format: "{y}°C"
           }
-        },
-        arearange: {
-          // shared options for all arearange series
         }
       },
       series: [
